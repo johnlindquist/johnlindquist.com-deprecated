@@ -39,7 +39,7 @@ var css:XML = <css><![CDATA[
     autoSize: left;
     textFieldWidth: 600;
     x: 100;
-    y: 300;
+    y: 250;
 }
 
 ]]>

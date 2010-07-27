@@ -12,20 +12,20 @@ package
 
 		public function NativeMappSignalDemo()
 		{
-			include "styles.css"
+			include "styles.as"
+
+			display = new TextArea("display");
+			addChild(display);
 
 			var viewComponent:ViewComponent = new ViewComponent();
 			addChild(viewComponent);
 
-			viewComponent.textSubmitted.add(onTextSubmitted);
-
-			display = new TextArea("display");
-			addChild(display);
+			viewComponent.textSubmitted.add(onTextSubmitted)
 		}
 
-		private function onTextSubmitted(submittedText:String):void
+		protected function onTextSubmitted(submittedText:String):void
 		{
-			display.text = submittedText;			
+			display.text = submittedText;
 		}
 	}
 }
