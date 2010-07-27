@@ -1,6 +1,8 @@
 package
 {
 	import com.flashartofwar.camo.components.TextArea;
+	import com.flashartofwar.camo.managers.SingletonManager;
+	import com.flashartofwar.fcss.stylesheets.StyleSheetCollection;
 
 	import flash.display.Sprite;
 
@@ -8,12 +10,15 @@ package
 
 	public class NativeMappSignalDemo extends Sprite
 	{
+		[Embed(source="styles.css",mimeType="application/octet-stream")]
+		protected var styles:Class;
+
 		protected var display:TextArea;
 
 		public function NativeMappSignalDemo()
 		{
-			//old school ;)
-			include "styles.as"
+			var styleSheet:StyleSheetCollection = SingletonManager.getClassReference(StyleSheetCollection);
+			styleSheet.parseCSS(new styles().toString());
 
 			display = new TextArea("display");
 			addChild(display);

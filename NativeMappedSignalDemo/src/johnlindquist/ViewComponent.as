@@ -28,10 +28,10 @@ package johnlindquist
 //			textSubmitted.mapTo(input.text);
 
 			//option #2 - function
-//			textSubmitted.mapTo(function():String
-//			{
-//				return input.text
-//			});
+			textSubmitted.mapTo(function():String
+			{
+				return input.text
+			});
 
 			//option #3 - event
 //			textSubmitted.mapTo(function(event:MouseEvent):String

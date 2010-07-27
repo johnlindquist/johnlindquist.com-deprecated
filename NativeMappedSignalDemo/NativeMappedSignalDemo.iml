@@ -5,6 +5,7 @@
     <option name="MAIN_CLASS" value="NativeMappSignalDemo" />
     <option name="OUTPUT_FILE_NAME" value="NativeMappSignalDemo.swf" />
     <option name="TARGET_PLAYER_VERSION" value="10.0.0" />
+    <option name="ADDITIONAL_COMPILER_OPTIONS" value="-static-link-runtime-shared-libraries=true" />
     <option name="VERSION" value="3" />
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
