@@ -1,0 +1,50 @@
+//This is just quick and dirty for demos, this should really be loaded at runtime
+
+import com.flashartofwar.camo.managers.SingletonManager;
+import com.flashartofwar.fcss.stylesheets.StyleSheetCollection;
+
+var css:XML = <css><![CDATA[
+
+#input {
+    defaultText: Fill out this form;
+    font: Arial;
+    color: black;
+    size: 20;
+    antiAliasType: advanced;
+    autoSize: left;
+    x: 100;
+    y: 100;
+}
+
+#button {
+    text: Submit;
+    font: Arial;
+    color: white;
+    size: 20;
+    backgroundColor: black;
+    x: 100;
+    y: 130;
+}
+
+#button:over {
+    backgroundColor: 0x009900;
+}
+
+
+#display {
+    font: Arial;
+    color: 0x00cc00;
+    size: 30;
+    antiAliasType: advanced;
+    autoSize: left;
+    textFieldWidth: 600;
+    x: 100;
+    y: 300;
+}
+
+]]>
+
+</css>;
+
+var styleSheet:StyleSheetCollection = SingletonManager.getClassReference(StyleSheetCollection);
+styleSheet.parseCSS(css.toString());

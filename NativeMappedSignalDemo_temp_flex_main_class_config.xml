@@ -1,0 +1,17 @@
+<flex-config xmlns="http://www.adobe.com/2006/flex-config">
+  <target-player>10.0.0</target-player>
+  <compiler>
+    <debug>true</debug>
+    <source-path>
+      <path-element>NativeMappedSignalDemo/src</path-element>
+    </source-path>
+    <library-path append="true">
+      <path-element>NativeMappedSignalDemo/libs/as3-signals.swc</path-element>
+      <path-element>NativeMappedSignalDemo/libs/FlashCamouflage-v0.5.4-alpha.swc</path-element>
+    </library-path>
+  </compiler>
+  <file-specs>
+    <path-element>NativeMappedSignalDemo/src/NativeMappSignalDemo.as</path-element>
+  </file-specs>
+  <output>D:/git/johnlindquist.com/out/production/NativeMappedSignalDemo/_NativeMappSignalDemo.swf</output>
+</flex-config>
