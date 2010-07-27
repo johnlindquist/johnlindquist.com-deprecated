@@ -12,6 +12,7 @@ package
 
 		public function NativeMappSignalDemo()
 		{
+			//old school ;)
 			include "styles.as"
 
 			display = new TextArea("display");
