@@ -19,6 +19,14 @@ package
     {
         private var raven:Raven;
 
+        public var power:Number;
+        distance
+        length
+        happiness
+        fun
+        love
+        
+        
         public function StrategyPatternDemo()
         {
             raven = new Raven();
@@ -34,10 +42,16 @@ package
             stage.addEventListener(KeyboardEvent.KEY_UP, onKeyUp)
         }
 
+        public function something():*
+        {
+                
+        }
+
         private function onKeyUp(event:KeyboardEvent):void
         {
             switch (event.keyCode)
             {
+                
                 case 49://keyboard 1
                     raven.moveBehavior = new Fly();
                     break;
