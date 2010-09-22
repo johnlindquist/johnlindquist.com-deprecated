@@ -23,7 +23,7 @@ package view
 		public function poke():void
 		{
 			radius++;
-			color = Math.random() * uint.MAX_VALUE;
+			color = Math.random() * 0xffffff;
 			draw();
 		}
 

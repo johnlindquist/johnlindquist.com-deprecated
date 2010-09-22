@@ -7,10 +7,6 @@ package controller
 {
     import flash.display.Sprite;
 
-    import flash.events.MouseEvent;
-
-    import model.StatsModel;
-
     import view.Ball;
     import view.BallMediator;
 

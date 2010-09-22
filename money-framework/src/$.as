@@ -8,11 +8,9 @@ package
     }
 }
 
-import flash.display.DisplayObject;
 import flash.display.DisplayObjectContainer;
 import flash.utils.Dictionary;
 
-//TODO: discuss benefits of ICommand and IMediator for run() and mediate()
 class Money implements IMoney
 {
     static var instance:Money;
@@ -37,6 +35,7 @@ class Money implements IMoney
         return {};
     }
 
+    //TODO: implement ids
     public function set(id:String = null, ...rest):void
     {
         if (currentInstance && currentType)
@@ -52,11 +51,15 @@ class Money implements IMoney
 
     public function run(...rest):void
     {
+        var watchers:Array = watchMap[currentType];
         var instance:* = newInstance(currentType, rest);
+        //TODO: consider ICommand
         if (instance.hasOwnProperty("execute"))
         {
             instance.execute();
-            var watchers:Array = watchMap[currentType];
+            var w:Dictionary = watchMap;
+            var c:Class = currentType;
+            
             if(watchers)
             {
                 for each (var watcher:Watcher in watchers)
@@ -74,19 +77,21 @@ class Money implements IMoney
 
     public function watch(callback:Function, ...rest):void
     {
-        if(watchMap[currentType] == null)
+        //TODO: implement unwatch
+        var watchers:Array = watchMap[currentType];
+        if(watchers == null)
         {
             watchMap[currentType] = [new Watcher(callback, rest)];
         }
         else
         {
-            var watchers:Array = watchMap[currentType];
             watchers.push(new Watcher(callback, rest));
         }
     }
 
     public function mediate(mediator:Class):DisplayObjectContainer
     {
+        //TODO: consider IMediator and waiting for ADDED_TO_STAGE
         var view:DisplayObjectContainer = new currentType;
         new mediator(view);
         
@@ -117,48 +122,48 @@ function deleteValue(type:Class)
     valueMap[type] = null;
 }
 
-function newInstance(clazz:Class, args:Array = null):*
+function newInstance(type:Class, args:Array = null):*
 {
-    var result:*;
+    var instance:*;
     var a:Array = (args == null) ? [] : args;
 
     switch (a.length)
     {
         case 1:
-            result = new clazz(a[0]);
+            instance = new type(a[0]);
             break;
         case 2:
-            result = new clazz(a[0], a[1]);
+            instance = new type(a[0], a[1]);
             break;
         case 3:
-            result = new clazz(a[0], a[1], a[2]);
+            instance = new type(a[0], a[1], a[2]);
             break;
         case 4:
-            result = new clazz(a[0], a[1], a[2], a[3]);
+            instance = new type(a[0], a[1], a[2], a[3]);
             break;
         case 5:
-            result = new clazz(a[0], a[1], a[2], a[3], a[4]);
+            instance = new type(a[0], a[1], a[2], a[3], a[4]);
             break;
         case 6:
-            result = new clazz(a[0], a[1], a[2], a[3], a[4], a[5]);
+            instance = new type(a[0], a[1], a[2], a[3], a[4], a[5]);
             break;
         case 7:
-            result = new clazz(a[0], a[1], a[2], a[3], a[4], a[5], a[6]);
+            instance = new type(a[0], a[1], a[2], a[3], a[4], a[5], a[6]);
             break;
         case 8:
-            result = new clazz(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7]);
+            instance = new type(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7]);
             break;
         case 9:
-            result = new clazz(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8]);
+            instance = new type(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8]);
             break;
         case 10:
-            result = new clazz(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9]);
+            instance = new type(a[0], a[1], a[2], a[3], a[4], a[5], a[6], a[7], a[8], a[9]);
             break;
         default:
-            result = new clazz();
+            instance = new type();
     }
 
-    return result;
+    return instance;
 }
 
 class Watcher
