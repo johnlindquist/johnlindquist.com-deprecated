@@ -57,9 +57,6 @@ class Money implements IMoney
         if (instance.hasOwnProperty("execute"))
         {
             instance.execute();
-            var w:Dictionary = watchMap;
-            var c:Class = currentType;
-            
             if(watchers)
             {
                 for each (var watcher:Watcher in watchers)
@@ -105,7 +102,6 @@ var watchMap:Dictionary = new Dictionary();
 function putValue(instance:*, type:Class):void
 {
     valueMap[type] = instance;
-    trace(instance, " mapped to ", type);
 }
 
 function getValue(type:Class)
