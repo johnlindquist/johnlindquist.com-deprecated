@@ -1,15 +1,15 @@
 package
 {
-    import flash.display.Sprite;
+    import controller.StartupCommand;
 
-    import m.StatsModel;
+    import flash.display.Sprite;
 
     public class MoneyDemo extends Sprite
     {
         public function MoneyDemo()
         {
-            $(StatsModel).put();
-            $(Sprite, this).put();
+            $(Sprite, this).set();
+            $(StartupCommand).run();
         }
     }
 }

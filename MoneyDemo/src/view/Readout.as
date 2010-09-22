@@ -3,7 +3,7 @@
  * Date: Sep 21, 2010
  * Time: 11:46:16 PM
  */
-package v
+package view
 {
     import flash.display.Sprite;
     import flash.text.TextField;

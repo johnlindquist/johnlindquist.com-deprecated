@@ -2,13 +2,17 @@ package
 {
     public function $(type:Class = null, instance:Object = null):IMoney
     {
-        //TODO: implement "id"
         Money.currentType = type;
         Money.currentInstance = instance;
         return Money.getInstance();
     }
 }
 
+import flash.display.DisplayObject;
+import flash.display.DisplayObjectContainer;
+import flash.utils.Dictionary;
+
+//TODO: discuss benefits of ICommand and IMediator for run() and mediate()
 class Money implements IMoney
 {
     static var instance:Money;
@@ -22,7 +26,8 @@ class Money implements IMoney
         return instance ||= new Money();
     }
 
-    public function get():*
+    //TODO: implement ids
+    public function get(id:String = null):*
     {
         if (currentType)
         {
@@ -32,7 +37,7 @@ class Money implements IMoney
         return {};
     }
 
-    public function put(...rest):void
+    public function set(id:String = null, ...rest):void
     {
         if (currentInstance && currentType)
         {
@@ -45,12 +50,20 @@ class Money implements IMoney
 
     }
 
-    public function post(...rest):void
+    public function run(...rest):void
     {
         var instance:* = newInstance(currentType, rest);
         if (instance.hasOwnProperty("execute"))
         {
             instance.execute();
+            var watchers:Array = watchMap[currentType];
+            if(watchers)
+            {
+                for each (var watcher:Watcher in watchers)
+                {
+                    watcher.callback.apply(watcher.rest);                
+                }
+            }
         }
     }
 
@@ -58,30 +71,50 @@ class Money implements IMoney
     {
         deleteValue(currentType);        
     }
+
+    public function watch(callback:Function, ...rest):void
+    {
+        if(watchMap[currentType] == null)
+        {
+            watchMap[currentType] = [new Watcher(callback, rest)];
+        }
+        else
+        {
+            var watchers:Array = watchMap[currentType];
+            watchers.push(new Watcher(callback, rest));
+        }
+    }
+
+    public function mediate(mediator:Class):DisplayObjectContainer
+    {
+        var view:DisplayObjectContainer = new currentType;
+        new mediator(view);
+        
+        return view;
+    }
 }
 
-import flash.utils.Dictionary;
-
-var map:Dictionary = new Dictionary();
+var valueMap:Dictionary = new Dictionary();
+var watchMap:Dictionary = new Dictionary();
 
 function putValue(instance:*, type:Class):void
 {
-    map[type] = instance;
+    valueMap[type] = instance;
     trace(instance, " mapped to ", type);
 }
 
 function getValue(type:Class)
 {
-    if (!map[type])
+    if (!valueMap[type])
     {
         putValue(new type(), type);
     }
-    return map[type];
+    return valueMap[type];
 }
 
 function deleteValue(type:Class)
 {
-    map[type] = null;
+    valueMap[type] = null;
 }
 
 function newInstance(clazz:Class, args:Array = null):*
@@ -126,4 +159,16 @@ function newInstance(clazz:Class, args:Array = null):*
     }
 
     return result;
+}
+
+class Watcher
+{
+    var callback:Function;
+    var rest:Array;
+
+    public function Watcher(callback:Function, rest:Array)
+    {
+        this.callback = callback;
+        this.rest = rest;
+    }
 }

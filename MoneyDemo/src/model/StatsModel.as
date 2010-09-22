@@ -3,7 +3,7 @@
  * Date: Sep 21, 2010
  * Time: 11:45:00 PM
  */
-package m
+package model
 {
     public class StatsModel
 	{

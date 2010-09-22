@@ -5,11 +5,15 @@
  */
 package
 {
+    import flash.display.DisplayObjectContainer;
+
     public interface IMoney
     {
-        function get():*;
-        function put(...rest):void;
-        function post(...rest):void;
+        function get(id:String = null):*;
+        function set(id:String = null, ...rest):void;
+        function run(...rest):void;
         function remove():void;
+        function watch(callback:Function, ...rest):void;
+        function mediate(type:Class):DisplayObjectContainer;
     }
 }

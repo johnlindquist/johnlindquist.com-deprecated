@@ -3,7 +3,7 @@
  * Date: Sep 21, 2010
  * Time: 11:45:49 PM
  */
-package v
+package view
 {
 	import flash.display.Sprite;
 
@@ -33,6 +33,5 @@ package v
 			graphics.beginFill(color);
 			graphics.drawCircle(0, 0, radius);
 		}
-
 	}
 }
