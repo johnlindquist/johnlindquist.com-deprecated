@@ -62,7 +62,7 @@ package bowling.frames
 			return frameScore;
 		}
 
-		public function nextRoll():void
+		public function updateRollIndex():void
 		{
 			if (rollIndex == maxRollIndex)
 			{

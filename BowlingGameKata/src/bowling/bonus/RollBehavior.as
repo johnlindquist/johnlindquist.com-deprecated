@@ -19,7 +19,7 @@ package bowling.bonus
 
 		public function setupBonus(pins:int):void
 		{
-			bowlingFrame.nextRoll();
+			bowlingFrame.updateRollIndex();
 		}
 
 		public function addBonusPins(pins:int):void

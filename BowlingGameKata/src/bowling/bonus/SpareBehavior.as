@@ -17,7 +17,7 @@ package bowling.bonus
 		override public function setupBonus(pins:int):void
 		{
 			numOfBonusRolls = 1;
-			bowlingFrame.nextRoll();
+			bowlingFrame.updateRollIndex();
 		}
 	}
 }
