@@ -46,7 +46,7 @@ package bowling.frames
 			for (var i:int = 0; i < bowlingGameFrames.length; i++)
 			{
 				var bowlingFrame:BowlingFrame = bowlingGameFrames[i];
-				score += bowlingFrame.getScore();
+				score += bowlingFrame.score;
 			}
 			
 			return score;

@@ -28,7 +28,7 @@ package bowling.rules
 				return new StrikeBehavior(bowlingFrame);
 			}
 
-			var isSpare:Boolean = (bowlingFrame.frameScore == pinsPerFrame);
+			var isSpare:Boolean = (bowlingFrame.score == pinsPerFrame);
 			if (isSpare)
 			{
 				return new SpareBehavior(bowlingFrame);

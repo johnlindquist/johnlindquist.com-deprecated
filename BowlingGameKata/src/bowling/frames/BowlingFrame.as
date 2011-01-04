@@ -20,7 +20,7 @@ package bowling.frames
 		private var maxRollIndex:int;
 		private var rollIndex:int = 0;
 		
-		public var frameScore:int = 0;
+		public var score:int = 0;
 
 		public function BowlingFrame(rules:FrameRules, maxRollIndex:int = 1)
 		{
@@ -30,7 +30,7 @@ package bowling.frames
 
 		public function addPins(pins:int):void
 		{
-			frameScore += pins;
+			score += pins;
 			bonusBehavior = rules.determineBehavior(this, pins);
 			bonusBehavior.setupBonus(pins);
 			
@@ -55,11 +55,6 @@ package bowling.frames
 		public function setPreviousFrame(previousFrame:BowlingFrame):void
 		{
 			this.previousFrame = previousFrame;
-		}
-
-		public function getScore():int
-		{
-			return frameScore;
 		}
 
 		public function updateRollIndex():void

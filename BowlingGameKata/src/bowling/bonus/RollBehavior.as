@@ -26,7 +26,7 @@ package bowling.bonus
 		{
 			if (numOfBonusRolls > 0)
 			{
-				bowlingFrame.frameScore += pins;
+				bowlingFrame.score += pins;
 				numOfBonusRolls--;
 			}
 		}
