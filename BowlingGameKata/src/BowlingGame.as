@@ -5,7 +5,7 @@
  */
 package
 {
-	import game.BowlingFrameCollection;
+	import game.frames.BowlingFrameCollection;
 
 	public class BowlingGame
 	{

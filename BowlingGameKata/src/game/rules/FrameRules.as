@@ -3,8 +3,14 @@
  * Date: 1/4/11
  * Time: 9:50 AM
  */
-package game
+package game.rules
 {
+	import game.bonus.BonusBehavior;
+	import game.bonus.RollBehavior;
+	import game.bonus.SpareBehavior;
+	import game.bonus.StrikeBehavior;
+	import game.frames.BowlingFrame;
+
 	public class FrameRules
 	{
 		private var pinsPerFrame:int;

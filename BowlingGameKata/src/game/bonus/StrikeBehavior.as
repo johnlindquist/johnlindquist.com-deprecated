@@ -3,8 +3,10 @@
  * Date: 1/3/11
  * Time: 10:33 PM
  */
-package game
+package game.bonus
 {
+	import game.frames.BowlingFrame;
+
 	public class StrikeBehavior extends RollBehavior
 	{
 		public function StrikeBehavior(bowlingFrame:BowlingFrame)

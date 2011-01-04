@@ -3,8 +3,10 @@
  * Date: 1/3/11
  * Time: 10:33 PM
  */
-package game
+package game.bonus
 {
+	import game.frames.BowlingFrame;
+
 	public class SpareBehavior extends RollBehavior
 	{
 		public function SpareBehavior(bowlingFrame:BowlingFrame)

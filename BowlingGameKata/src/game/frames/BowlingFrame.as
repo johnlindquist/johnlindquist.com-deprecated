@@ -3,10 +3,13 @@
  * Date: 1/3/11
  * Time: 6:24 PM
  */
-package game
+package game.frames
 {
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
+
+	import game.bonus.BonusBehavior;
+	import game.rules.FrameRules;
 
 	public class BowlingFrame extends EventDispatcher
 	{
@@ -17,7 +20,7 @@ package game
 		private var maxRollIndex:int;
 		private var rollIndex:int = 0;
 		
-		internal var frameScore:int = 0;
+		public var frameScore:int = 0;
 
 		public function BowlingFrame(rules:FrameRules, maxRollIndex:int = 1)
 		{

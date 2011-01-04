@@ -3,7 +3,7 @@
  * Date: 1/3/11
  * Time: 10:32 PM
  */
-package game
+package game.bonus
 {
 	public interface BonusBehavior
 	{
