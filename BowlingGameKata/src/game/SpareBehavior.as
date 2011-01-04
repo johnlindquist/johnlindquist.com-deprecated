@@ -5,8 +5,6 @@
  */
 package game
 {
-	import flash.events.Event;
-
 	public class SpareBehavior implements AddPinsBehavior
 	{
 		private var bowlingFrame:BowlingFrame;
@@ -16,10 +14,11 @@ package game
 		{
 			this.bowlingFrame = bowlingFrame;
 			
-			bowlingFrame.dispatchEvent(new Event(Event.CLOSE));
 			bowlingFrame.addBonusPinsToPreviousFrame(pins);
 			
 			numOfBonusRolls = 1;
+			
+			bowlingFrame.nextRoll();
 		}
 
 		public function addBonusPins(pins:int):void

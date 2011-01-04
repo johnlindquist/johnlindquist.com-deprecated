@@ -5,6 +5,7 @@
  */
 package game
 {
+	import flash.events.Event;
 	import flash.events.EventDispatcher;
 
 	public class BowlingFrame extends EventDispatcher
@@ -61,7 +62,19 @@ package game
 
 		public function nextRoll():void
 		{
-			rollIndex++;
+			if(rollLimitReached())
+			{
+				closeFrame();
+			}
+			else
+			{
+				rollIndex++;
+			}
+		}
+
+		public function closeFrame():void
+		{
+			dispatchEvent(new Event(Event.CLOSE));
 		}
 	}
 }

@@ -5,8 +5,6 @@
  */
 package game
 {
-	import flash.events.Event;
-
 	public class NotAllPinsBehavior implements AddPinsBehavior
 	{
 		private var bowlingFrame:BowlingFrame;
@@ -15,15 +13,8 @@ package game
 		{
 			this.bowlingFrame = bowlingFrame;
 			
-			if (bowlingFrame.rollLimitReached())
-			{
-				bowlingFrame.dispatchEvent(new Event(Event.CLOSE));
-			}
-			else
-			{
-				bowlingFrame.nextRoll();
-			}
 			bowlingFrame.addBonusPinsToPreviousFrame(pins);
+			bowlingFrame.nextRoll();
 		}
 
 		public function addBonusPins(pins:int):void

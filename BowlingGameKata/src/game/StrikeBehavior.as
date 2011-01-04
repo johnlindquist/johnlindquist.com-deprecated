@@ -16,10 +16,10 @@ package game
 		{
 			this.bowlingFrame = bowlingFrame;
 
-			bowlingFrame.dispatchEvent(new Event(Event.CLOSE));
 			bowlingFrame.addBonusPinsToPreviousFrame(pins);
-			
 			numOfBonusRolls = 2;
+
+			bowlingFrame.closeFrame();
 		}
 
 		public function addBonusPins(pins:int):void
