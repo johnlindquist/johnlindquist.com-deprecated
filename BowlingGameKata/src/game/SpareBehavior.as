@@ -7,9 +7,13 @@ package game
 {
 	public class SpareBehavior extends NormalRollBehavior
 	{
-		override public function addPins(bowlingFrame:BowlingFrame, pins:int):void
+		public function SpareBehavior(bowlingFrame:BowlingFrame)
 		{
-			this.bowlingFrame = bowlingFrame;
+			super(bowlingFrame);
+		}
+
+		override public function addPins(pins:int):void
+		{
 			numOfBonusRolls = 1;
 			bowlingFrame.nextRoll();
 		}

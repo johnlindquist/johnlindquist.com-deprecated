@@ -7,7 +7,7 @@ package game
 {
 	public interface AddPinsBehavior
 	{
-		function addPins(bowlingFrame:BowlingFrame, pins:int):void;
+		function addPins(pins:int):void;
 		function addBonusPins(pins:int):void;
 	}
 }

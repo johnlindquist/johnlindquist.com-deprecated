@@ -5,6 +5,8 @@
  */
 package game
 {
+	import game.BowlingFrame;
+
 	public class FrameRules
 	{
 		private var pinsPerFrame:int;
@@ -14,21 +16,21 @@ package game
 			this.pinsPerFrame = pinsPerFrame;
 		}
 
-		public function determineBehavior(pins:int, frameScore:int):AddPinsBehavior
+		public function determineBehavior(bowlingFrame:BowlingFrame, pins:int):AddPinsBehavior
 		{
 			var isStrike:Boolean = (pins == pinsPerFrame);
 			if (isStrike)
 			{
-				return new StrikeBehavior();
+				return new StrikeBehavior(bowlingFrame);
 			}
 
-			var isSpare:Boolean = (frameScore == pinsPerFrame);
+			var isSpare:Boolean = (bowlingFrame.frameScore == pinsPerFrame);
 			if (isSpare)
 			{
-				return new SpareBehavior();
+				return new SpareBehavior(bowlingFrame);
 			}
 
-			return new NormalRollBehavior();
+			return new NormalRollBehavior(bowlingFrame);
 		}
 	}
 }

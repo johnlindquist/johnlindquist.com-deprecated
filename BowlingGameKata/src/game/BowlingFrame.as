@@ -28,8 +28,8 @@ package game
 		public function addPins(pins:int):void
 		{
 			frameScore += pins;
-			frameBehavior = rules.determineBehavior(pins, frameScore);
-			frameBehavior.addPins(this, pins);
+			frameBehavior = rules.determineBehavior(this, pins);
+			frameBehavior.addPins(pins);
 			addBonusPinsToPreviousFrame(pins);
 		}
 

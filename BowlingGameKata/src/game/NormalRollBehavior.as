@@ -10,9 +10,13 @@ package game
 		protected var bowlingFrame:BowlingFrame;
 		protected var numOfBonusRolls:int;
 
-		public function addPins(bowlingFrame:BowlingFrame, pins:int):void
+		public function NormalRollBehavior(bowlingFrame:BowlingFrame)
 		{
 			this.bowlingFrame = bowlingFrame;
+		}
+
+		public function addPins(pins:int):void
+		{
 			bowlingFrame.nextRoll();
 		}
 

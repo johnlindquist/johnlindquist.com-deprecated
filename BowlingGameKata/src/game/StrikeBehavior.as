@@ -7,9 +7,13 @@ package game
 {
 	public class StrikeBehavior extends NormalRollBehavior
 	{
-		override public function addPins(bowlingFrame:BowlingFrame, pins:int):void
+		public function StrikeBehavior(bowlingFrame:BowlingFrame)
 		{
-			this.bowlingFrame = bowlingFrame;
+			super(bowlingFrame);
+		}
+
+		override public function addPins(pins:int):void
+		{
 			numOfBonusRolls = 2;
 			bowlingFrame.closeFrame();
 		}
