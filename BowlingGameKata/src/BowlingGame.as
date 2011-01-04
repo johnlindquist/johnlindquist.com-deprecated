@@ -6,6 +6,7 @@
 package
 {
 	import bowling.frames.BowlingFrameCollection;
+	import bowling.rules.StandardRules;
 
 	public class BowlingGame
 	{
@@ -13,7 +14,7 @@ package
 
 		public function BowlingGame()
 		{
-			bowlingFrameCollection = new BowlingFrameCollection(10);
+			bowlingFrameCollection = new BowlingFrameCollection(new StandardRules(10), 10);
 		}
 
 		public function roll(pins:int):void

@@ -5,11 +5,11 @@
  */
 package bowling.frames
 {
-	import flash.events.Event;
-	import flash.events.EventDispatcher;
-
 	import bowling.bonus.BonusBehavior;
 	import bowling.rules.FrameRules;
+
+	import flash.events.Event;
+	import flash.events.EventDispatcher;
 
 	public class BowlingFrame extends EventDispatcher
 	{

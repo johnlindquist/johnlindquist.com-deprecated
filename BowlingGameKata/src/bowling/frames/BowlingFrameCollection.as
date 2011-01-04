@@ -5,9 +5,9 @@
  */
 package bowling.frames
 {
-	import flash.events.Event;
-
 	import bowling.rules.FrameRules;
+
+	import flash.events.Event;
 
 	public class BowlingFrameCollection
 	{
@@ -15,12 +15,11 @@ package bowling.frames
 		private var currentFrameIndex:int = 0;
 		private var totalFrames:int;
 		
-		public function BowlingFrameCollection(totalFrames:int, maxRollIndex:int = 1, pinsPerFrame:int = 10)
+		public function BowlingFrameCollection(frameRules:FrameRules, totalFrames:int, maxRollIndex:int = 1)
 		{
 			this.totalFrames = totalFrames;
 
 			var bowlingFrame:BowlingFrame;
-			var frameRules:FrameRules = new FrameRules(pinsPerFrame);
 
 			bowlingFrame = createFrame(frameRules, maxRollIndex); //don't add previous to the first frame
 			for (var i:int = 1; i < totalFrames; i++)
@@ -30,7 +29,7 @@ package bowling.frames
 				bowlingFrame.setPreviousFrame(previousBowlingFrame);
 			}
 		}
-
+		
 		private function createFrame(frameRules:FrameRules, maxRollIndex:int):BowlingFrame
 		{
 			var bowlingFrame:BowlingFrame = new BowlingFrame(frameRules, maxRollIndex);
@@ -64,7 +63,10 @@ package bowling.frames
 
 		private function onBowlingFrameClose(event:Event):void
 		{
-			if(currentFrameIndex < totalFrames - 1) currentFrameIndex++;
+			if(currentFrameIndex < totalFrames - 1)
+			{
+				currentFrameIndex++;
+			}
 		}
 	}
 }
