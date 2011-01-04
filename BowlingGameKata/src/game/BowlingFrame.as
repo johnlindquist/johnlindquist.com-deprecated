@@ -55,14 +55,9 @@ package game
 			return frameScore;
 		}
 
-		public function rollLimitReached():Boolean
-		{
-			return rollIndex == maxRollIndex;
-		}
-
 		public function nextRoll():void
 		{
-			if(rollLimitReached())
+			if (rollIndex == maxRollIndex)
 			{
 				closeFrame();
 			}
