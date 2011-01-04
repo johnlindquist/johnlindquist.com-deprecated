@@ -5,12 +5,12 @@
  */
 package game
 {
-	public class NormalRollBehavior implements AddPinsBehavior
+	public class RollBehavior implements AddPinsBehavior
 	{
 		protected var bowlingFrame:BowlingFrame;
 		protected var numOfBonusRolls:int;
 
-		public function NormalRollBehavior(bowlingFrame:BowlingFrame)
+		public function RollBehavior(bowlingFrame:BowlingFrame)
 		{
 			this.bowlingFrame = bowlingFrame;
 		}

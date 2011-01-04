@@ -5,7 +5,7 @@
  */
 package game
 {
-	public class SpareBehavior extends NormalRollBehavior
+	public class SpareBehavior extends RollBehavior
 	{
 		public function SpareBehavior(bowlingFrame:BowlingFrame)
 		{

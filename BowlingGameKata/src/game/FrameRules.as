@@ -30,7 +30,7 @@ package game
 				return new SpareBehavior(bowlingFrame);
 			}
 
-			return new NormalRollBehavior(bowlingFrame);
+			return new RollBehavior(bowlingFrame);
 		}
 	}
 }

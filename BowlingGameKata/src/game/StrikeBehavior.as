@@ -5,7 +5,7 @@
  */
 package game
 {
-	public class StrikeBehavior extends NormalRollBehavior
+	public class StrikeBehavior extends RollBehavior
 	{
 		public function StrikeBehavior(bowlingFrame:BowlingFrame)
 		{
