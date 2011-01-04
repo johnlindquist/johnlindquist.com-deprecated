@@ -11,7 +11,7 @@ package game
 	public class BowlingFrame extends EventDispatcher
 	{
 		private var rules:FrameRules;
-		private var frameBehavior:AddPinsBehavior;
+		private var bonusBehavior:BonusBehavior;
 		private var previousFrame:BowlingFrame;
 
 		private var maxRollIndex:int;
@@ -28,14 +28,16 @@ package game
 		public function addPins(pins:int):void
 		{
 			frameScore += pins;
-			frameBehavior = rules.determineBehavior(this, pins);
-			frameBehavior.addPins(pins);
+			bonusBehavior = rules.determineBehavior(this, pins);
+			bonusBehavior.setupBonus(pins);
+			
 			addBonusPinsToPreviousFrame(pins);
 		}
 
 		public function addBonusPins(pins:int):void
 		{
-			frameBehavior.addBonusPins(pins);
+			bonusBehavior.addBonusPins(pins);
+			
 			addBonusPinsToPreviousFrame(pins);
 		}
 

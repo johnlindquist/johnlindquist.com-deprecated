@@ -14,7 +14,7 @@ package game
 			this.pinsPerFrame = pinsPerFrame;
 		}
 
-		public function determineBehavior(bowlingFrame:BowlingFrame, pins:int):AddPinsBehavior
+		public function determineBehavior(bowlingFrame:BowlingFrame, pins:int):BonusBehavior
 		{
 			var isStrike:Boolean = (pins == pinsPerFrame);
 			if (isStrike)

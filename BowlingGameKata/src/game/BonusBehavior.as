@@ -5,9 +5,9 @@
  */
 package game
 {
-	public interface AddPinsBehavior
+	public interface BonusBehavior
 	{
-		function addPins(pins:int):void;
+		function setupBonus(pins:int):void;
 		function addBonusPins(pins:int):void;
 	}
 }

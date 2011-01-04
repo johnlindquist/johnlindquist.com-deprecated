@@ -12,7 +12,7 @@ package game
 			super(bowlingFrame);
 		}
 
-		override public function addPins(pins:int):void
+		override public function setupBonus(pins:int):void
 		{
 			numOfBonusRolls = 1;
 			bowlingFrame.nextRoll();
