@@ -3,13 +3,13 @@
  * Date: 1/3/11
  * Time: 6:24 PM
  */
-package game.frames
+package bowling.frames
 {
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 
-	import game.bonus.BonusBehavior;
-	import game.rules.FrameRules;
+	import bowling.bonus.BonusBehavior;
+	import bowling.rules.FrameRules;
 
 	public class BowlingFrame extends EventDispatcher
 	{

@@ -3,13 +3,13 @@
  * Date: 1/4/11
  * Time: 9:50 AM
  */
-package game.rules
+package bowling.rules
 {
-	import game.bonus.BonusBehavior;
-	import game.bonus.RollBehavior;
-	import game.bonus.SpareBehavior;
-	import game.bonus.StrikeBehavior;
-	import game.frames.BowlingFrame;
+	import bowling.bonus.BonusBehavior;
+	import bowling.bonus.RollBehavior;
+	import bowling.bonus.SpareBehavior;
+	import bowling.bonus.StrikeBehavior;
+	import bowling.frames.BowlingFrame;
 
 	public class FrameRules
 	{

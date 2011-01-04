@@ -3,11 +3,11 @@
  * Date: 1/3/11
  * Time: 6:31 PM
  */
-package game.frames
+package bowling.frames
 {
 	import flash.events.Event;
 
-	import game.rules.FrameRules;
+	import bowling.rules.FrameRules;
 
 	public class BowlingFrameCollection
 	{
