@@ -5,31 +5,15 @@
  */
 package game
 {
-	import flash.events.Event;
-
-	public class StrikeBehavior implements AddPinsBehavior
+	public class StrikeBehavior extends NormalRollBehavior
 	{
-		private var bowlingFrame:BowlingFrame;
-		private var numOfBonusRolls:int;
-		
-		public function addPins(bowlingFrame:BowlingFrame, pins:int):void
+
+		override public function addPins(bowlingFrame:BowlingFrame, pins:int):void
 		{
 			this.bowlingFrame = bowlingFrame;
-
-			bowlingFrame.addBonusPinsToPreviousFrame(pins);
 			numOfBonusRolls = 2;
-
 			bowlingFrame.closeFrame();
 		}
 
-		public function addBonusPins(pins:int):void
-		{
-			if (numOfBonusRolls > 0)
-			{
-				bowlingFrame.frameScore += pins;
-				bowlingFrame.addBonusPinsToPreviousFrame(pins);
-				numOfBonusRolls--;
-			}
-		}
 	}
 }

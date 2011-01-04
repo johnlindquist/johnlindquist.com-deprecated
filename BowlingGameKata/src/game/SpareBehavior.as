@@ -5,30 +5,13 @@
  */
 package game
 {
-	public class SpareBehavior implements AddPinsBehavior
+	public class SpareBehavior extends NormalRollBehavior
 	{
-		private var bowlingFrame:BowlingFrame;
-		private var numOfBonusRolls:int;
-
-		public function addPins(bowlingFrame:BowlingFrame, pins:int):void
+		override public function addPins(bowlingFrame:BowlingFrame, pins:int):void
 		{
 			this.bowlingFrame = bowlingFrame;
-			
-			bowlingFrame.addBonusPinsToPreviousFrame(pins);
-			
 			numOfBonusRolls = 1;
-			
 			bowlingFrame.nextRoll();
-		}
-
-		public function addBonusPins(pins:int):void
-		{
-			if (numOfBonusRolls > 0)
-			{
-				bowlingFrame.frameScore += pins;
-				bowlingFrame.addBonusPinsToPreviousFrame(pins);
-				numOfBonusRolls--;
-			}
 		}
 	}
 }

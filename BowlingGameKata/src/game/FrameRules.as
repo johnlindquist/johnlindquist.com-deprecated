@@ -28,7 +28,7 @@ package game
 				return new SpareBehavior();
 			}
 
-			return new NotAllPinsBehavior();
+			return new NormalRollBehavior();
 		}
 	}
 }

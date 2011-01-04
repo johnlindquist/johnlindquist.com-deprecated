@@ -30,6 +30,7 @@ package game
 			frameScore += pins;
 			frameBehavior = rules.determineBehavior(pins, frameScore);
 			frameBehavior.addPins(this, pins);
+			addBonusPinsToPreviousFrame(pins);
 		}
 
 		public function addBonusPins(pins:int):void
