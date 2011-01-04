@@ -36,6 +36,7 @@ package game
 		public function addBonusPins(pins:int):void
 		{
 			frameBehavior.addBonusPins(pins);
+			addBonusPinsToPreviousFrame(pins);
 		}
 
 		public function addBonusPinsToPreviousFrame(pins:int):void

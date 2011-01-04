@@ -7,7 +7,6 @@ package game
 {
 	public class NormalRollBehavior implements AddPinsBehavior
 	{
-
 		protected var bowlingFrame:BowlingFrame;
 		protected var numOfBonusRolls:int;
 
@@ -22,7 +21,6 @@ package game
 			if (numOfBonusRolls > 0)
 			{
 				bowlingFrame.frameScore += pins;
-				bowlingFrame.addBonusPinsToPreviousFrame(pins);
 				numOfBonusRolls--;
 			}
 		}
