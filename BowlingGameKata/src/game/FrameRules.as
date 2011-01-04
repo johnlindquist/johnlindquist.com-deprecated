@@ -5,8 +5,6 @@
  */
 package game
 {
-	import game.BowlingFrame;
-
 	public class FrameRules
 	{
 		private var pinsPerFrame:int;
