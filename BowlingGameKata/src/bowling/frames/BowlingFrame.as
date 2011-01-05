@@ -20,6 +20,8 @@ package bowling.frames
 		public var score:int = 0;
 		public var rollIndex:int = 0;
 
+		public var rolls:Array = [];
+
 		public function BowlingFrame(rules:FrameRules)
 		{
 			this.rules = rules;
@@ -28,6 +30,7 @@ package bowling.frames
 		public function addPins(pins:int):void
 		{
 			score += pins;
+			rolls.push(pins);
 			bonusBehavior = rules.determineBehavior(this, pins);
 			
 			addBonusPinsToPreviousFrame(pins);

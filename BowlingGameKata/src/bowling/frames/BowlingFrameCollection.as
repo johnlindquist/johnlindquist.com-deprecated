@@ -68,5 +68,10 @@ package bowling.frames
 				currentFrameIndex++;
 			}
 		}
+
+		public function getFrames():Array
+		{
+			return bowlingGameFrames;
+		}
 	}
 }

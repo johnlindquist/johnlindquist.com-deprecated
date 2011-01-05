@@ -41,7 +41,7 @@ package bowling.rules
 
 		public function updateRolls(bowlingFrame:BowlingFrame):void
 		{
-			if (bowlingFrame.rollIndex == rollsPerFrame)
+			if (bowlingFrame.rollIndex == rollsPerFrame - 1)
 			{
 				bowlingFrame.closeFrame();
 			}
