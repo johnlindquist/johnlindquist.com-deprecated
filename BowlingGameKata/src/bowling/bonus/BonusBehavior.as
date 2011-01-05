@@ -7,7 +7,8 @@ package bowling.bonus
 {
 	public interface BonusBehavior
 	{
-		function setupBonus(pins:int):void;
 		function addBonusPins(pins:int):void;
+
+		function init():void;
 	}
 }

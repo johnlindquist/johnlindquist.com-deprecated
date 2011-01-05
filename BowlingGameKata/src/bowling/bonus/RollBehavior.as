@@ -10,25 +10,28 @@ package bowling.bonus
 	public class RollBehavior implements BonusBehavior
 	{
 		protected var bowlingFrame:BowlingFrame;
-		protected var numOfBonusRolls:int;
-
+		protected var totalBonusRollsToBeAdded:int;
+		
 		public function RollBehavior(bowlingFrame:BowlingFrame)
 		{
 			this.bowlingFrame = bowlingFrame;
+			init();
 		}
 
-		public function setupBonus(pins:int):void
+		public function init():void
 		{
-			bowlingFrame.updateRollIndex();
+			totalBonusRollsToBeAdded = 0;
+			bowlingFrame.updateFrame();
 		}
 
 		public function addBonusPins(pins:int):void
 		{
-			if (numOfBonusRolls > 0)
+			if(totalBonusRollsToBeAdded > 0)
 			{
 				bowlingFrame.score += pins;
-				numOfBonusRolls--;
 			}
+
+			totalBonusRollsToBeAdded--;
 		}
 	}
 }

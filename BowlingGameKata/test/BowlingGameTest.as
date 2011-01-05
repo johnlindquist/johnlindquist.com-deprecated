@@ -97,6 +97,30 @@ package
 			rollMany(12, 10);
 			Assert.assertEquals(300, game.score);
 		}
+		
+		[Test]
+		public function testGameVariation1():void
+		{
+			game.roll(4);
+			game.roll(2);
+			game.roll(2);
+			game.roll(3);
+			game.roll(0);
+			game.roll(9);
+			game.roll(1);
+			game.roll(9);
+			game.roll(5);
+			game.roll(2);
+			game.roll(10);
+			game.roll(10);
+			game.roll(7);
+			game.roll(3);
+			game.roll(1);
+			game.roll(4);
+			game.roll(3);
+			game.roll(2);
+			Assert.assertEquals(110, game.score);
+		}
 
 		private function rollStrike():void
 		{

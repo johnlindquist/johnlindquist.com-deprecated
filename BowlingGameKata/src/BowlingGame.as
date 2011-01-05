@@ -14,7 +14,7 @@ package
 
 		public function BowlingGame()
 		{
-			bowlingFrameCollection = new BowlingFrameCollection(new StandardRules(10), 10);
+			bowlingFrameCollection = new BowlingFrameCollection(new StandardRules(10, 1), 10);
 		}
 
 		public function roll(pins:int):void

@@ -14,10 +14,10 @@ package bowling.bonus
 			super(bowlingFrame);
 		}
 
-		override public function setupBonus(pins:int):void
+		override public function init():void
 		{
-			numOfBonusRolls = 1;
-			bowlingFrame.updateRollIndex();
+			totalBonusRollsToBeAdded = 1;
+			bowlingFrame.updateFrame();
 		}
 	}
 }

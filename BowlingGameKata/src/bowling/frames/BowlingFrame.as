@@ -16,30 +16,19 @@ package bowling.frames
 		private var rules:FrameRules;
 		private var bonusBehavior:BonusBehavior;
 		private var previousFrame:BowlingFrame;
-
-		private var maxRollIndex:int;
-		private var rollIndex:int = 0;
 		
 		public var score:int = 0;
+		public var rollIndex:int = 0;
 
-		public function BowlingFrame(rules:FrameRules, maxRollIndex:int = 1)
+		public function BowlingFrame(rules:FrameRules)
 		{
 			this.rules = rules;
-			this.maxRollIndex = maxRollIndex;
 		}
 
 		public function addPins(pins:int):void
 		{
 			score += pins;
 			bonusBehavior = rules.determineBehavior(this, pins);
-			bonusBehavior.setupBonus(pins);
-			
-			addBonusPinsToPreviousFrame(pins);
-		}
-
-		public function addBonusPins(pins:int):void
-		{
-			bonusBehavior.addBonusPins(pins);
 			
 			addBonusPinsToPreviousFrame(pins);
 		}
@@ -52,21 +41,21 @@ package bowling.frames
 			}
 		}
 
-		public function setPreviousFrame(previousFrame:BowlingFrame):void
+		public function addBonusPins(pins:int):void
 		{
-			this.previousFrame = previousFrame;
+			bonusBehavior.addBonusPins(pins);
+			
+			addBonusPinsToPreviousFrame(pins);
 		}
 
-		public function updateRollIndex():void
+		public function setPreviousFrame(frame:BowlingFrame):void
 		{
-			if (rollIndex == maxRollIndex)
-			{
-				closeFrame();
-			}
-			else
-			{
-				rollIndex++;
-			}
+			previousFrame = frame;
+		}
+
+		public function updateFrame():void
+		{
+			rules.updateRolls(this);
 		}
 
 		public function closeFrame():void

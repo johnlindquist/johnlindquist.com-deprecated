@@ -14,10 +14,12 @@ package bowling.rules
 	public class StandardRules implements FrameRules
 	{
 		private var pinsPerFrame:int;
+		private var rollsPerFrame:int;
 
-		public function StandardRules(pinsPerFrame:int)
+		public function StandardRules(pinsPerFrame:int, rollsPerFrame:int)
 		{
 			this.pinsPerFrame = pinsPerFrame;
+			this.rollsPerFrame = rollsPerFrame;
 		}
 
 		public function determineBehavior(bowlingFrame:BowlingFrame, pins:int):BonusBehavior
@@ -35,6 +37,18 @@ package bowling.rules
 			}
 
 			return new RollBehavior(bowlingFrame);
+		}
+
+		public function updateRolls(bowlingFrame:BowlingFrame):void
+		{
+			if (bowlingFrame.rollIndex == rollsPerFrame)
+			{
+				bowlingFrame.closeFrame();
+			}
+			else
+			{
+				bowlingFrame.rollIndex++;
+			}
 		}
 	}
 }

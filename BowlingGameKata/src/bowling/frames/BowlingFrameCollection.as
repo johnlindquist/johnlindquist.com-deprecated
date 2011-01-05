@@ -15,24 +15,24 @@ package bowling.frames
 		private var currentFrameIndex:int = 0;
 		private var totalFrames:int;
 		
-		public function BowlingFrameCollection(frameRules:FrameRules, totalFrames:int, maxRollIndex:int = 1)
+		public function BowlingFrameCollection(frameRules:FrameRules, totalFrames:int)
 		{
 			this.totalFrames = totalFrames;
 
 			var bowlingFrame:BowlingFrame;
 
-			bowlingFrame = createFrame(frameRules, maxRollIndex); //don't add previous to the first frame
+			bowlingFrame = createFrame(frameRules); //don't add previous to the first frame
 			for (var i:int = 1; i < totalFrames; i++)
 			{
-				bowlingFrame = createFrame(frameRules, maxRollIndex);
+				bowlingFrame = createFrame(frameRules);
 				var previousBowlingFrame:BowlingFrame = bowlingGameFrames[i - 1] as BowlingFrame;
 				bowlingFrame.setPreviousFrame(previousBowlingFrame);
 			}
 		}
 		
-		private function createFrame(frameRules:FrameRules, maxRollIndex:int):BowlingFrame
+		private function createFrame(frameRules:FrameRules):BowlingFrame
 		{
-			var bowlingFrame:BowlingFrame = new BowlingFrame(frameRules, maxRollIndex);
+			var bowlingFrame:BowlingFrame = new BowlingFrame(frameRules);
 			bowlingFrame.addEventListener(Event.CLOSE, onBowlingFrameClose);
 			bowlingGameFrames.push(bowlingFrame);
 			return bowlingFrame;

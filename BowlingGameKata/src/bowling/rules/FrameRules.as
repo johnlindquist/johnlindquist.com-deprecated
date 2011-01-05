@@ -10,7 +10,7 @@ package bowling.rules
 
 	public interface FrameRules
 	{
-
 		function determineBehavior(bowlingFrame:BowlingFrame, pins:int):BonusBehavior;
+		function updateRolls(bowlingFrame:BowlingFrame):void;
 	}
 }
