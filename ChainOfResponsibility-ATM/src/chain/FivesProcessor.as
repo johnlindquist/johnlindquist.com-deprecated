@@ -12,11 +12,10 @@ package chain
 	{
 		override public function process(dude:Dude, bank:Bank):void
 		{
-			if(bank.tens > 0 && dude.moneyNeeded > 20)
+			if(bank.fives > 0 && dude.moneyNeeded > 5)
 			{
-				bank.tens--;
-				dude.tens++;
-				process(dude, null);
+				bank.fives--;
+				dude.fives++;
 			}
 			else
 			{
