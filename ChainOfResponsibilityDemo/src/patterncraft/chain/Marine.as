@@ -5,7 +5,9 @@
  */
 package patterncraft.chain
 {
-    import flash.display.Sprite;
+	import com.greensock.TweenMax;
+
+	import flash.display.Sprite;
     import flash.events.Event;
 
     public class Marine extends Sprite
@@ -17,8 +19,10 @@ package patterncraft.chain
             health = Math.random() + .3;
 
             graphics.beginFill(0x00ff00);
-            graphics.drawRect(-2,-2, 4, 4);
+            graphics.drawRect(-8,-8, 16, 16);
             graphics.beginFill(0x00ff00);
+
+	        TweenMax.to(this, 0, {colorTransform:{tint:0xff0000, tintAmount:health}});
         }
 
         public function get health():Number
@@ -28,11 +32,11 @@ package patterncraft.chain
 
         public function set health(value:Number):void
         {
-            _health = value;
-            if(_health == 1)
+            if(value == 1)
             {
-                dispatchEvent(new Event(Event.CHANGE));
+	            dispatchEvent(new Event(Event.CHANGE));
             }
+	        _health = value;
         }
     }
 }

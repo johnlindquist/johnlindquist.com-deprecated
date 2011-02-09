@@ -2,7 +2,7 @@
 <module type="Flex" version="4">
   <component name="Flex.Build.Configuration">
     <option name="DO_BUILD" value="true" />
-    <option name="MAIN_CLASS" value="ChainOfResposibilityDemo" />
+    <option name="MAIN_CLASS" value="ChainOfResponsibilityDemo" />
     <option name="OUTPUT_FILE_NAME" value="ChainOfResposibilityDemo.swf" />
     <option name="TARGET_PLAYER_VERSION" value="10" />
     <option name="VERSION" value="3" />
