@@ -8,48 +8,30 @@ tiles
 {
 	import characters.Allowable;
 
-	import flash.display.Bitmap;
-	import flash.display.BitmapData;
-	import flash.text.TextField;
+	import com.untoldentertainment.pathfinding.INode;
 
-	public class Tile
+	import flash.display.BitmapData;
+
+	public class Tile implements INode
 	{
-		private var _ascii:String;
-		private var _graphic:Bitmap;
+		private var _graphic:BitmapData;
 		public var isHidden:Boolean = false;
 
 		private static var nullTile:NullTile;
 
-		public function get ascii():String
-		{
-			return _ascii;
-		}
-
-		public function get graphic():Bitmap
+		public function get graphic():BitmapData
 		{
 			return _graphic;
 		}
 
-		public static const BLANK_TILE:String = " ";
-
-		public function Tile(ascii:String)
+		public function set graphic(value:BitmapData):void
 		{
-			this._ascii = ascii;
+			_graphic = value;
+		}
 
-			var textField:TextField = new TextField();
-			textField.text = ascii;
-
-			var bitmapData:BitmapData;
-
-			bitmapData = new BitmapData(20, 20);
-			bitmapData.draw(textField);
-
-			_graphic = new Bitmap(bitmapData);
-
-			if (_ascii == BLANK_TILE)
-			{
-				isHidden = true;
-			}
+		public function Tile(graphic:BitmapData)
+		{
+			_graphic = graphic;
 		}
 
 		public function accept(visitor:Allowable):void
@@ -59,7 +41,65 @@ tiles
 
 		public static function getNullTile():NullTile
 		{
-			return nullTile ||= new NullTile("/");
+			return nullTile ||= new NullTile(new BitmapData(1, 1));
+		}
+
+		private var _parentNode:INode;
+		private var _f:Number;
+		private var _g:Number;
+		private var _h:Number;
+		private var _traversable:Boolean = true;
+
+		//Some 
+		private var _y:int;
+		private var _col:int;
+
+		public function Node(column:int, row:int)
+		{
+			this.y = row;
+			this.x = column;
+		}
+
+		public function get parentNode():INode { return _parentNode; }
+		public function set parentNode(value:INode):void
+		{
+			_parentNode = value;
+		}
+
+		public function get f():Number { return _f; }
+		public function set f(value:Number):void
+		{
+			_f = value;
+		}
+
+		public function get g():Number { return _g; }
+		public function set g(value:Number):void
+		{
+			_g = value;
+		}
+
+		public function get h():Number { return _h; }
+		public function set h(value:Number):void
+		{
+			_h = value;
+		}
+
+		public function get traversable():Boolean { return _traversable; }
+		public function set traversable(value:Boolean):void
+		{
+			_traversable = value;
+		}
+
+		public function get y():int { return _y; }
+		public function set y(value:int):void
+		{
+			_y = value;
+		}
+
+		public function get x():int { return _col; }
+		public function set x(value:int):void
+		{
+			_col = value;
 		}
 	}
 }

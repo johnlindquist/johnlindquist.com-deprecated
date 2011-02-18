@@ -8,18 +8,26 @@ tiles
 {
 	import characters.Allowable;
 
+	import flash.display.BitmapData;
+
 	public class NullTile extends Tile
 	{
 
-		public function NullTile(defaultValue)
+		public function NullTile(graphic:BitmapData)
 		{
-			super(defaultValue);
+			super(graphic);
 		}
 
 
 		override public function accept(visitor:Allowable):void
 		{
 			visitor.deny();
+		}
+
+
+		override public function get traversable():Boolean
+		{
+			return false;
 		}
 	}
 }

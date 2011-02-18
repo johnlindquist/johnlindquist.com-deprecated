@@ -11,18 +11,20 @@ package characters
 	import flash.text.TextField;
 	import flash.text.TextFormat;
 
-	public class Hero extends Sprite implements Allowable
+	public class Monster extends Sprite implements Visitable, Allowable
 	{
 		private var _ascii:String;
 		private var _graphic:Bitmap;
+		private static var _size:int;
 		
-		public function Hero(ascii:String, size:int)
+		public function Monster(ascii:String, size:int)
 		{
 			this._ascii = ascii;
+			_size = size;
 
 			var textField:TextField = new TextField();
 			textField.text = ascii;
-			textField.setTextFormat(new TextFormat("Lucida Console", size, 0x00ff00));
+			textField.setTextFormat(new TextFormat("Lucida Console", size, 0xff0000));
 
 			var bitmapData:BitmapData;
 
@@ -40,6 +42,19 @@ package characters
 
 		public function deny():void
 		{
+		}
+
+		public function accept(visitor:Allowable):void
+		{
+			visitor.deny();
+		}
+		
+		private static var nullMonster:NullMonster;
+		public static const BLANK_MONSTER:String = " ";
+
+		public static function getNullMonster():NullMonster
+		{
+			return nullMonster ||= new NullMonster(BLANK_MONSTER, 20);
 		}
 	}
 }

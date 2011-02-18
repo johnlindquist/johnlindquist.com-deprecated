@@ -8,6 +8,10 @@ package commands
 	import characters.Allowable;
 	import characters.Hero;
 
+	import characters.Monster;
+
+	import characters.NullMonster;
+
 	import collections.Position;
 
 	import flash.ui.Keyboard;
@@ -55,6 +59,10 @@ package commands
 					break;
 			}
 
+			var monster:Monster = characterMap.findMonster(position.column, position.row);
+			monster.accept(hero);
+			if(!(monster is NullMonster)) return;
+			
 			var tile:Tile = terrainMap.getTile(position.column, position.row);
 			tile.accept(this);
 		}

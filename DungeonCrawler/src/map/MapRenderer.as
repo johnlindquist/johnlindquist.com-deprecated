@@ -12,24 +12,28 @@ package map
 
 	public class MapRenderer
 	{
-		public function render(tileMap:TileMap, bitmap:Bitmap):void
+		private var _size:int;
+		private var _bitmap:Bitmap;
+		public function render(tileMap:TileMap, bitmap:Bitmap, size:int):void
 		{
-			bitmap.bitmapData.fillRect(bitmap.bitmapData.rect, 0xff0000);
-			for (var i:int = 0; i < tileMap.source.length; i++)
+			_bitmap = bitmap;
+			_size = size;
+
+			_bitmap.bitmapData.fillRect(_bitmap.bitmapData.rect, 0xff0000);
+			tileMap.walk(renderMap);
+				
+		}
+
+		private function renderMap(tile:Tile, x:int, y:int):Tile
+		{
+			var matrix:Matrix = new Matrix();
+			matrix.translate(x * _size, y * _size);
+			if (!tile.isHidden)
 			{
-				var row:Array = tileMap.source[i];
-				for (var j:int = 0; j < row.length; j++)
-				{
-					var tile:Tile = row[j] as Tile;
-					var matrix:Matrix = new Matrix();
-					matrix.translate(20 + i * 20, 20 + j * 20);
-					if (!tile.isHidden)
-					{
-						bitmap.bitmapData.draw(tile.graphic, matrix);
-					}
-					trace(tile.ascii);
-				}
+				_bitmap.bitmapData.draw(tile.graphic, matrix);
 			}
+			
+			return tile;
 		}
 	}
 }

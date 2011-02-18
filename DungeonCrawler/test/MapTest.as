@@ -23,10 +23,10 @@ package
 		[Test]
 		public function populating_the_top_row_of_the_map_should_all_have_the_same():void
 		{
-			var tile0:Tile = new Tile("0");
-			var map:TileMap = new TileMap(3, 3, tile0);
+			var tile0:Tile = new Tile("0", 20);
+			var map:TileMap = new TileMap(3, 3, graphic);
 
-			var tile1:Tile = new Tile("1");
+			var tile1:Tile = new Tile("1", 20);
 			map.populateTopRow(tile1);
 
 			assertThat(map.source[0], array(tile1, tile1, tile1));
@@ -37,10 +37,10 @@ package
 		[Test]
 		public function populating_the_left_column_should_all_have_the_same():void
 		{
-			var tile0:Tile = new Tile("0");
-			var map:TileMap = new TileMap(3, 3, tile0);
+			var tile0:Tile = new Tile("0", 20);
+			var map:TileMap = new TileMap(3, 3, graphic);
 
-			var tile1:Tile = new Tile("1");
+			var tile1:Tile = new Tile("1", 20);
 			map.populateLeftColumn(tile1);
 
 			assertThat(map.source[0], array(tile1, tile0, tile0));
@@ -51,10 +51,10 @@ package
 		[Test]
 		public function populating_the_right_column_should_all_have_the_same():void
 		{
-			var tile0:Tile = new Tile("0");
-			var map:TileMap = new TileMap(3, 3, tile0);
+			var tile0:Tile = new Tile("0", 20);
+			var map:TileMap = new TileMap(3, 3, graphic);
 
-			var tile1:Tile = new Tile("1");
+			var tile1:Tile = new Tile("1", 20);
 			map.populateRightColumn(tile1);
 
 			assertThat(map.source[0], array(tile0, tile0, tile1));
@@ -65,10 +65,10 @@ package
 		[Test]
 		public function populating_the_bottom_row_should_all_have_the_same():void
 		{
-			var tile0:Tile = new Tile("0");
-			var map:TileMap = new TileMap(3, 3, tile0);
+			var tile0:Tile = new Tile("0", 20);
+			var map:TileMap = new TileMap(3, 3, graphic);
 
-			var tile1:Tile = new Tile("1");
+			var tile1:Tile = new Tile("1", 20);
 			map.populateBottomRow(tile1);
 
 			assertThat(map.source[0], array(tile0, tile0, tile0));
@@ -79,10 +79,10 @@ package
 		[Test]
 		public function getting_a_tile_should_return_the_right_tile():void
 		{
-			var tile0:Tile = new Tile("0");
-			var map:TileMap = new TileMap(3, 3, tile0);
+			var tile0:Tile = new Tile("0", 20);
+			var map:TileMap = new TileMap(3, 3, graphic);
 
-			var tile1:Tile = new Tile("1");
+			var tile1:Tile = new Tile("1", 20);
 			map.source[1][1] = tile1;
 
 			assertStrictlyEquals(map.getTile(1, 1), tile1);
@@ -93,10 +93,10 @@ package
 		[Test]
 		public function getting_a_null_tile_should_return_a_null_tile():void
 		{
-			var tile0:Tile = new Tile("0");
-			var map:TileMap = new TileMap(3, 3, tile0);
+			var tile0:Tile = new Tile("0", 20);
+			var map:TileMap = new TileMap(3, 3, graphic);
 
-			var tile1:Tile = new Tile("1");
+			var tile1:Tile = new Tile("1", 20);
 			map.source[1][1] = tile1;
 
 			assertThat(map.getTile(0, 0), not(isA(NullTile)));

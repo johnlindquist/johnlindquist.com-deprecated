@@ -9,6 +9,17 @@ package collections
 	{
 		private var _column:uint;
 		private var _row:uint;
+		private var _h:Number;
+
+		public function get h():Number
+		{
+			return _h;
+		}
+
+		public function set h(value:Number):void
+		{
+			_h = value;
+		}
 
 		public function set column(value:uint):void
 		{
