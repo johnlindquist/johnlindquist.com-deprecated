@@ -2,6 +2,8 @@ package {
 
     import flash.display.Sprite;
 
+    import mx.messaging.messages.SOAPMessage;
+
     import patterncraft.strategy.BarStrategy;
 
     import patterncraft.strategy.Container;
@@ -11,13 +13,14 @@ package {
     public class Main extends Sprite {
         public function Main() {
             var container:Container = new Container();
-            
-            var strategy:IStrategy = new FooStrategy(container);
-            container.engageBehavior = strategy;
+
+            container.engageBehavior = new FooStrategy(container);
             container.engage();
             
-            container.engageBehavior = new BarStrategy(container)
+            container.engageBehavior = new BarStrategy(container);
             container.engage();
+            
+            SOAPMessage
         }
     }
 }
